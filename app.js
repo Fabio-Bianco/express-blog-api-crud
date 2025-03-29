@@ -5,6 +5,10 @@ const port = 4000; // variabile che identifica la porta;
 
 const posts = require('./posts'); // importazione dell'array dei post
 
+// istruzione per l'accesso del serverer alla cartella pubblic
+
+app.use (express.static ('public'));
+
 // aggiungo la rotta home page blog
 app.get("/", (req, res) => {
   console.log(" rotta principale del blog");
@@ -12,9 +16,9 @@ app.get("/", (req, res) => {
   res.send("Benvenuto sul blog"); // risposta
 });
 
-// aggiungo una rotta per i post
+ 
 
-// rotta che restituisce tutti i post
+// aggiungo una rotta restituisce tutti i post
 app.get('/posts', (req, res) => {
     console.log('Rotta per i posts');
    
