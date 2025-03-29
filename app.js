@@ -1,6 +1,13 @@
 const express = require("express"); // importazione di express
 const app = express(); // invocazione di express;
 const port = 4000; // variabile che identifica la porta;
+const postsRouter = require('./routers/posts'); 
+// Importa il file posts.js dalla cartella routers che contiene tutte le rotte per gestire l'entità "post"
+
+app.use('/posts', postsRouter); 
+// Registra il router importato, assegnandogli il prefisso '/posts'
+
+
 
 
 const posts = require('./posts'); // importazione dell'array dei post
