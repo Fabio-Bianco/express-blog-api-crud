@@ -15,7 +15,7 @@ function index(req, res) {
     return res.json(filteredPosts);
   }
 
- return res.json(posts);
+  res.json(posts);
 }
 
 
