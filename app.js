@@ -6,7 +6,14 @@ const postsRouter = require('./routers/posts');
 app.use('/posts', postsRouter);
 // usa il router per tutte le rotte /posts
 
+app.use(express.json()); //store nuova aggiunta 
+
 app.use(express.static('public')); // serve i file statici
+ 
+app.post("/", (req, res) => {
+  console.log(req.body);
+});
+
 
 app.get("/", (req, res) => {
   res.send("Benvenuto sul blog");
