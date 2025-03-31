@@ -3,7 +3,8 @@ const app = express();
 const port = 4000;
 
 const postsRouter = require('./routers/posts');
-app.use('/posts', postsRouter); // usa il router per tutte le rotte /posts
+app.use('/posts', postsRouter);
+// usa il router per tutte le rotte /posts
 
 app.use(express.static('public')); // serve i file statici
 

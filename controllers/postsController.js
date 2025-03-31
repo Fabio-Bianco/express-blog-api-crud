@@ -2,6 +2,7 @@
 
 const posts = require('../data/posts');
 
+
 // INDEX – restituisce tutti i post, con filtro opzionale per tag
 function index(req, res) {
   const tag = req.query.tag;
