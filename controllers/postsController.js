@@ -2,18 +2,21 @@
 
 const posts = require('../data/posts');
 
-
 // INDEX – restituisce tutti i post, con filtro opzionale per tag
 function index(req, res) {
   const tag = req.query.tag;
 
   if (tag) {
-    const filteredPosts = posts.filter(post => post.tags.includes(tag));
+    const tagLower = tag.toLowerCase(); // converte il tag in minuscolo
+    const filteredPosts = posts.filter(post =>
+      post.tags.some(t => t.toLowerCase() === tagLower) // confronto in minuscolo
+    );
     return res.json(filteredPosts);
   }
 
   res.json(posts);
 }
+
 
 // SHOW – restituisce un post specifico per ID
 function show(req, res) {
