@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
 const port = 4000;
+app.use(express.json()); //store aggiunta nuovo post 
 
 const postsRouter = require('./routers/posts');
 app.use('/posts', postsRouter);
 // usa il router per tutte le rotte /posts
 
-app.use(express.json()); //store nuova aggiunta 
+
 
 app.use(express.static('public')); // serve i file statici
  
