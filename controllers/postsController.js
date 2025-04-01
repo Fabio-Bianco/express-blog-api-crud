@@ -106,9 +106,9 @@ function update(req, res) {
 
   posts[index] = updatedPost;
 
-  console.log(`✏️ Post con ID ${id} aggiornato con successo.`);
-  console.log('📄 Nuovo contenuto del post:', updatedPost);
-  console.log('📦 Lista aggiornata:', posts);
+  console.log(` Post con ID ${id} aggiornato con successo.`);
+  console.log(' Nuovo contenuto del post:', updatedPost);
+  console.log(' Lista aggiornata:', posts);
 
   return res.status(200).json({
     message: 'Post aggiornato con successo (completo)',
@@ -133,8 +133,8 @@ function modify(req, res) {
   if (req.body.image !== undefined) post.image = req.body.image;
   if (req.body.tags !== undefined) post.tags = req.body.tags;
 
-  console.log(`🩹 Post con ID ${id} modificato parzialmente.`);
-  console.log('📄 Contenuto aggiornato:', post);
+  console.log(` Post con ID ${id} modificato parzialmente.`);
+  console.log(' Contenuto aggiornato:', post);
 
   return res.status(200).json({
     message: `Post modificato con successo (parziale)`,
