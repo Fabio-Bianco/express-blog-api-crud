@@ -17,7 +17,7 @@ function index(req, res) {
       post.tags.some(tag => tagList.includes(tag.toLowerCase()))
     );
 
-    console.log(`🔍 Post filtrati per tag [${tagList.join(', ')}]:`, filteredPosts);
+    console.log(` Post filtrati per tag [${tagList.join(', ')}]:`, filteredPosts);
 
     return res.json({
       message: `Post trovati con i tag: ${tagList.join(', ')}`,
@@ -25,7 +25,7 @@ function index(req, res) {
     });
   }
 
-  console.log('📋 Nessun filtro applicato, restituisco tutti i post:', posts);
+  console.log(' Nessun filtro applicato, restituisco tutti i post:', posts);
 
   return res.json({
     message: 'Tutti i post disponibili',
@@ -41,7 +41,7 @@ function show(req, res) {
   const post = posts.find(p => p.id === id);
 
   if (!post) {
-    console.log(`❌ Post con ID ${id} non trovato`);
+    console.log(` Post con ID ${id} non trovato`);
     return res.status(404).json({ error: 'Post non trovato' });
   }
 
@@ -75,8 +75,8 @@ function create(req, res) {
 
   posts.push(newPost);
 
-  console.log('✅ Nuovo post creato:', newPost);
-  console.log('📦 Lista aggiornata:', posts);
+  console.log(' Nuovo post creato:', newPost);
+  console.log(' Lista aggiornata:', posts);
 
   return res.status(201).json({
     message: 'Post creato con successo',
@@ -92,7 +92,7 @@ function update(req, res) {
   const index = posts.findIndex(p => p.id === id);
 
   if (index === -1) {
-    console.log(`❌ Nessun post trovato con ID ${id}. Aggiornamento non eseguito.`);
+    console.log(` Nessun post trovato con ID ${id}. Aggiornamento non eseguito.`);
     return res.status(404).json({ error: `Post con ID ${id} non trovato` });
   }
 
@@ -124,7 +124,7 @@ function modify(req, res) {
   const post = posts.find(p => p.id === id);
 
   if (!post) {
-    console.log(`❌ Post con ID ${id} non trovato per modifica parziale.`);
+    console.log(` Post con ID ${id} non trovato per modifica parziale.`);
     return res.status(404).json({ error: `Post con ID ${id} non trovato` });
   }
 
@@ -150,14 +150,14 @@ function remove(req, res) {
   const index = posts.findIndex(post => post.id === id);
 
   if (index === -1) {
-    console.log(`❌ Tentativo di eliminazione fallito: post con ID ${id} non trovato.`);
+    console.log(`Tentativo di eliminazione fallito: post con ID ${id} non trovato.`);
     return res.status(404).json({ error: 'Post non trovato' });
   }
 
   const deletedPost = posts.splice(index, 1)[0];
 
-  console.log(`🗑️ Post con ID ${id} eliminato con successo.`);
-  console.log('📦 Lista aggiornata:', posts);
+  console.log(` Post con ID ${id} eliminato con successo.`);
+  console.log(' Lista aggiornata:', posts);
 
   return res.status(200).json({
     message: `Post con ID ${id} eliminato con successo`,
