@@ -6,7 +6,7 @@ router.get('/', controller.index);           // index
 
 router.get('/:id', controller.show);         // show
 
-router.post('/', controller.create);         // create
+router.post('/', controller.create);         // store
 
 router.put('/:id', controller.update);       // update
 
