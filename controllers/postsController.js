@@ -143,10 +143,6 @@ function modify(req, res) {
   });
 }
 
-
-
-
-// DESTROY – elimina un post
 // DESTROY – elimina un post
 function remove(req, res) {
   // Estrae l'ID dai parametri della richiesta e lo converte in intero
